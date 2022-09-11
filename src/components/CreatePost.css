@@ -4,7 +4,7 @@
 	justify-content: center;
 }
 
-.postContainer {
+.createPostPage .postContainer {
 	display: flex;
 	background-color: #fcfcfc;
 	border-radius: 8px;
@@ -16,11 +16,11 @@
 	box-shadow: 12px 12px 12px -8px #666;
 }
 
-.postContainer h1 {
+.createPostPage .postContainer h1 {
 	margin: 0;
 }
 
-.postContainer input{
+.createPostPage .postContainer input{
 	width: 100%;
 	height: 28px;
 	outline: none;
@@ -29,7 +29,7 @@
 	border: 1px solid #666;
 }
 
-.postContainer textarea {
+.createPostPage .postContainer textarea {
 	width: 100%;
 	height: 120px;
 	outline: none;
@@ -38,7 +38,7 @@
 	border: 1px solid #666;
 }
 
-.postButton {
+.createPostPage .postButton {
 	padding: 8px;
 	width: 100%;
 	border: none;
@@ -50,7 +50,7 @@
 	margin-top: 8px;
 }
 
-.postButton:hover {
+.createPostPage .postButton:hover {
 	transform: translateY(4px);
 	box-shadow: none;
 }
