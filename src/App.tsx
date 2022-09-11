@@ -9,6 +9,9 @@ import { Navbar } from './components/Navbar'
 
 function App() {
 
+  /** ログイン状態の真偽値 */
+  const [isAuth, setItAuth] = useState(false);
+
   return (
     <>
       <Router> {/* Router: ルーティング設定を記述するコンポーネント */}
@@ -17,7 +20,7 @@ function App() {
           {/* Route: path にURL(パス)を、element にそのURLへアクセスされた際に表示するコンポーネント名を記述する */}
           <Route path="/" element={<Home />} ></Route>
           <Route path="/createpost" element={<CreatePost />} ></Route>
-          <Route path="/login" element={<Login />} ></Route>
+          <Route path="/login" element={<Login setIsAuth={setItAuth} />} ></Route>
           <Route path="/logout" element={<Logout />} ></Route>
         </Routes>
       </Router>
