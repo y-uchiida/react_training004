@@ -10,7 +10,7 @@ import { Navbar } from './components/Navbar'
 function App() {
 
   /** ログイン状態の真偽値 */
-  const [isAuth, setItAuth] = useState(false);
+  const [isAuth, setItAuth] = useState(localStorage.getItem('isAuth') === 'true');
 
   return (
     <>
