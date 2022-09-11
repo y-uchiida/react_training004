@@ -15,13 +15,13 @@ function App() {
   return (
     <>
       <Router> {/* Router: ルーティング設定を記述するコンポーネント */}
-        <Navbar />
+        <Navbar isAuth={isAuth} />
         <Routes> {/* Routes: このコンポーネントの中に、パスとコンポーネントの一覧を書いていく */}
           {/* Route: path にURL(パス)を、element にそのURLへアクセスされた際に表示するコンポーネント名を記述する */}
           <Route path="/" element={<Home />} ></Route>
           <Route path="/createpost" element={<CreatePost />} ></Route>
           <Route path="/login" element={<Login setIsAuth={setItAuth} />} ></Route>
-          <Route path="/logout" element={<Logout />} ></Route>
+          <Route path="/logout" element={<Logout setIsAuth={setItAuth} />} ></Route>
         </Routes>
       </Router>
     </>

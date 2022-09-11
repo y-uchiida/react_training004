@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import './Navbar.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faFilePen, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faFilePen, faArrowRightToBracket, faDoorClosed } from '@fortawesome/free-solid-svg-icons'
 
-export const Navbar = () => {
+export const Navbar = ({ isAuth }: { isAuth: boolean }) => {
 	return (
 		<nav>
 			<Link to='/'>
@@ -16,10 +16,22 @@ export const Navbar = () => {
 				<FontAwesomeIcon icon={faFilePen} />
 				Create post
 			</Link>
-			<Link to='/login'>
-				<FontAwesomeIcon icon={faArrowRightToBracket} />
-				Login
-			</Link>
+
+			{/* ログイン状態によって、login/logout メニューを切り替える */}
+			{!isAuth ? (
+				// ログインしてないとき -> login メニューを表示
+				<Link to='/login'>
+					<FontAwesomeIcon icon={faArrowRightToBracket} />
+					Login
+				</Link>
+			) : (
+				// ログインしているとき -> logout メニューを表示
+				<Link to='/logout'>
+					<FontAwesomeIcon icon={faDoorClosed} />
+					Logout
+				</Link>
+			)}
+
 		</nav>
 	)
 }
