@@ -1,6 +1,6 @@
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, deleteDoc, doc, getDocs } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
-import { db } from '../firebase';
+import { auth, db } from '../firebase';
 import './Home.css'
 
 type post = {
@@ -40,6 +40,12 @@ export const Home = () => {
 		getPosts();
 	}, []);
 
+	/** 削除ボタンが押された投稿をfirestore から削除する */
+	const handleDelete = async (id: string) => {
+		await (deleteDoc(doc(db, 'posts', id)));
+		setPostList(postList.filter(post => post.id != id));
+	}
+
 	return (
 		<div className='homePage'>
 			<>
@@ -54,7 +60,10 @@ export const Home = () => {
 							</div>
 							<div className="nameAndDeleteButton">
 								<h3>@ {post.author.userName}</h3>
-								<button>削除</button>
+								{/* 自身が投稿したもののみ、削除ボタンを表示する */}
+								{post.author.id === auth.currentUser?.uid && (
+									<button onClick={() => handleDelete(post.id)}>削除</button>
+								)}
 							</div>
 						</div>
 					);
