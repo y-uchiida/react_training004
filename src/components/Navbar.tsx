@@ -12,10 +12,7 @@ export const Navbar = ({ isAuth }: { isAuth: boolean }) => {
 				<FontAwesomeIcon icon={faHouse} />
 				Home
 			</Link>
-			<Link to='/createpost'>
-				<FontAwesomeIcon icon={faFilePen} />
-				Create post
-			</Link>
+
 
 			{/* ログイン状態によって、login/logout メニューを切り替える */}
 			{!isAuth ? (
@@ -25,11 +22,17 @@ export const Navbar = ({ isAuth }: { isAuth: boolean }) => {
 					Login
 				</Link>
 			) : (
-				// ログインしているとき -> logout メニューを表示
-				<Link to='/logout'>
-					<FontAwesomeIcon icon={faDoorClosed} />
-					Logout
-				</Link>
+				// ログインしているとき -> createpost メニューと logout メニューを表示
+				<>
+					<Link to='/createpost'>
+						<FontAwesomeIcon icon={faFilePen} />
+						Create post
+					</Link>
+					<Link to='/logout'>
+						<FontAwesomeIcon icon={faDoorClosed} />
+						Logout
+					</Link>
+				</>
 			)}
 
 		</nav>
