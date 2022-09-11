@@ -9,7 +9,6 @@ import { Navbar } from './components/Navbar'
 
 function App() {
 
-
   return (
     <>
       <Router> {/* Router: ルーティング設定を記述するコンポーネント */}

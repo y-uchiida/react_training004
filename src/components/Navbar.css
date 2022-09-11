@@ -17,3 +17,7 @@ nav a:hover {
 	color: #e6e6e6c0;
 	text-decoration: underline;
 }
+
+nav a svg {
+	margin-right: 8px;
+}
